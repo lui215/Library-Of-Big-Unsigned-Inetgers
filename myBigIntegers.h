@@ -5,17 +5,6 @@
 
 class Integer{
     std::string s;
-    void removeLeadingZeros(std::string &s1, std::string &s2, int &l1, int &l2){
-        int i = 0, j = 0;
-        while(i < l1 && s1[i] == '0'){
-            i++;
-        }
-        s1 = s1.substr(i), l1 = s1.size();
-        while(j < l2 && s2[j] == '0'){
-            j++;
-        }
-        s2 = s2.substr(j), l2 = s2.size();
-    }
 public:
     Integer(){}
     Integer(std::string s){
@@ -43,6 +32,18 @@ public:
 
     friend std::ostream & operator<<(std::ostream&, const Integer&);
     friend std::istream & operator>>(std::istream&, Integer&);
+private:
+    void removeLeadingZeros(std::string &s1, std::string &s2, int &l1, int &l2){
+        int i = 0, j = 0;
+        while(i < l1 && s1[i] == '0'){
+            i++;
+        }
+        s1 = s1.substr(i), l1 = s1.size();
+        while(j < l2 && s2[j] == '0'){
+            j++;
+        }
+        s2 = s2.substr(j), l2 = s2.size();
+    }
 };
 
 void Integer::operator=(std::string s){
